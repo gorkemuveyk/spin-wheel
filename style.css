@@ -1,0 +1,152 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  font-family: "Poppins", sans-serif;
+  background-color: #2b3467;
+  min-width: 100vw;
+  min-height: 100vh;
+}
+
+.container {
+  width: 500px;
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid white;
+  border-radius: 50%;
+  position: relative;
+}
+
+.wheel {
+  width: 95%;
+  height: 95%;
+  overflow: hidden;
+  position: relative;
+  border-radius: 50%;
+  transition: 10s transform ease-in-out;
+}
+
+.spin {
+  background-color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 99;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  height: 60px;
+  font-weight: 600;
+  cursor: pointer;
+  border: 3px solid #eb455f;
+  user-select: none;
+}
+
+.spin .line {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: -16px;
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  background-color: white;
+  width: 20px;
+  height: 20px;
+}
+
+.option {
+  position: absolute;
+  width: 50%;
+  height: 50%;
+  background-color: var(--clr);
+  transform-origin: bottom right;
+  transform: rotate(calc(45deg * var(--i)));
+  clip-path: polygon(0 0, 55% 0, 100% 100%, 0 55%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+}
+
+span {
+  transform: rotate(45deg);
+  position: relative;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #fff;
+  text-shadow: 3px 5px 2px rgba(0, 0, 0, 0.15);
+}
+
+@media screen and (max-width: 767px) {
+  .container {
+    width: 300px;
+    height: 300px;
+  }
+  .option span {
+    font-size: 14px !important;
+  }
+  .spin {
+    width: 35px;
+    height: 35px;
+    font-size: 10px;
+  }
+  .spin .line {
+    width: 10px;
+    height: 10px;
+    top: -9px;
+  }
+}
+
+/* Tabletler */
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .container {
+    width: 400px;
+    height: 400px;
+  }
+  .option span {
+    font-size: 18px !important;
+  }
+  .spin {
+    width: 40px;
+    height: 40px;
+    font-size: 12px;
+  }
+  .spin .line {
+    width: 15px;
+    height: 15px;
+    top: -12px;
+  }
+}
+
+/* Masaüstü */
+@media screen and (min-width: 1024px) {
+  .container {
+    width: 500px;
+    height: 500px;
+  }
+  .option span {
+    font-size: 25px !important;
+  }
+  .spin {
+    width: 50px;
+    height: 50px;
+    font-size: 16px;
+  }
+  .spin .line {
+    width: 20px;
+    height: 20px;
+  }
+}
